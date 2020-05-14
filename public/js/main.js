@@ -19,3 +19,12 @@ if('undefined' == typeof username || !username){
 }
 
 $('#messages').append('<h4>'+username+'</h4>');
+
+/* Connect to the socket server */
+
+var socket = io.connect();
+
+socket.on('log',function(array) {
+  console.log.apply(console,array)
+}
+);
