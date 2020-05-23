@@ -152,20 +152,18 @@ socket.on('join_room',function(payload){
   log('join_room success');
 });
 
-socket.on('disconnect',function(socket){
+socket.on('disconnect',function(){
   log('Client disconnected '+JSON.stringify(players[socket.id]));
   if('undefined' !== typeof players[socket.id] && players[socket.id]){
     var username = players[socket.id].username;
     var room = players[socket.id].room;
     var payload = {
       username: username,
-      socket_id: socket.id,
+      socket_id: socket.id
     };
     delete players[socket.id];
     io.in(room).emit('player_disconnected',payload);
   }
-
-
 });
 
 /* send_message command */
