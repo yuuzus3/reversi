@@ -31,8 +31,7 @@ var socket = io.connect();
 
 socket.on('log',function(array) {
   console.log.apply(console,array);
-}
-);
+});
 
 /* What to do when the server responds that someone joined a room */
 
@@ -52,11 +51,11 @@ socket.on('join_room_response',function(payload){
 /*if we don't already have an entry for this person */
   if(dom_elements.length == 0) {
     var nodeA = $('<div></div>');
-        nodeA.addClass('.socket_'+payload.socket_id);
+        nodeA.addClass('socket_'+payload.socket_id);
     var nodeB = $('<div></div>');
-        nodeB.addClass('.socket_'+payload.socket_id);
+        nodeB.addClass('socket_'+payload.socket_id);
     var nodeC = $('<div></div>');
-        nodeC.addClass('.socket_'+payload.socket_id);
+        nodeC.addClass('socket_'+payload.socket_id);
 
     nodeA.addClass('w-100');
 
