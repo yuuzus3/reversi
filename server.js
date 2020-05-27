@@ -422,7 +422,7 @@ socket.on('uninvite',function(payload){
 {
   'requested_user': the socket id of the person to play with
 }
-  uninvite_response:
+game_start_response:
   {
   'result': 'success',
   'socket_id': the socket id of the person you are playing with
@@ -462,9 +462,9 @@ socket.on('game_start',function(payload){
 
   var requested_user = payload.requested_user;
   if(('undefined' === typeof requested_user) || !requested_user) {
-    var error_message = 'game_start didn\'t specify a requested_user, command aborted';
+    var error_message = 'uninvite didn\'t specify a requested_user, command aborted';
     log(error_message);
-    socket.emit('game_start_response', {
+    socket.emit('uninvite_response', {
       result: 'fail',
       message: error_message
     });

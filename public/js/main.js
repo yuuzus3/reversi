@@ -177,12 +177,11 @@ socket.on('uninvited',function(payload){
 });
 
 /* send a game start message to the server */
-
 function game_start(who){
   var payload = {};
   payload.requested_user = who;
   console.log('*** Client Log Message: \'game_start\' payload: '+JSON.stringify(payload));
-  socket.emit('uninvite',payload);
+  socket.emit('game_start',payload);
 }
 
 socket.on('game_start_response',function(payload){
@@ -193,6 +192,7 @@ socket.on('game_start_response',function(payload){
   var newNode = makeEngagedButton(payload.socket_id);
   $('.socket_'+payload.socket_id+' button').replaceWith(newNode);
  /* Jump to a new page */
+   window.location.href = 'game.html?username='+username+'&game_id='+payload.game_id;
 });
 
 
@@ -213,12 +213,12 @@ socket.on('send_message_response',function(payload){
   }
   var newHTML = '<p><b>' +payload.username+' says:</b> '+payload.message+'</p>';
   var newNode = $(newHTML);
-  newNode.hide();
-  $('#messages').append(newNode);
-  newNode.slideDown(1000);
+      newNode.hide();
+      $('#messages').append(newNode);
+      newNode.slideDown(1000);
 });
 
-
+/* button functions */
 
 function makeInviteButton(socket_id){
   var newHTML = '<button type=\' button\' class=\' btn btn-outline-primary\'>Invite</button>';
