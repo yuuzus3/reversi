@@ -19,3 +19,7 @@ table#game_board td{
 #messages p{
   margin: 0px;
 }
+
+td.hovered_over:hover {
+  background: url('../images/hover.gif')
+}
