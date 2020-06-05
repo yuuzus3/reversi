@@ -1,5 +1,5 @@
 body {
-background-color: DarkSlateGray;
+background-color: #fff5e6;
 }
 
 table#game_board {
@@ -7,6 +7,7 @@ table#game_board {
   border-style: solid;
   border-width: 10px;
   border-color: rgb(100,100,100);
+  background-color: rgb(255,255,255);
 }
 
 table#game_board td{
