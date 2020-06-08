@@ -117,7 +117,7 @@ socket.on('join_room_response',function(payload){
     var newHTML = '<p>'+payload.username+' has left the room</p>';
     var newNode = $(newHTML);
     newNode.hide();
-    $('#messages').prepend(newNode);
+    $('#messages').append(newNode);
     newNode.slideDown(1000);
 
   });
@@ -215,7 +215,7 @@ socket.on('send_message_response',function(payload){
   var newHTML = '<p><b>' +payload.username+' says:</b> '+payload.message+'</p>';
   var newNode = $(newHTML);
       newNode.hide();
-      $('#messages').append(newNode);
+      $('#messages').prepend(newNode);
       newNode.slideDown(1000);
 });
 
